@@ -8,7 +8,7 @@ const fs = require('fs');
 const HttpError = require('./models/http-error');
 const userRoutes = require('./routes/users-routes');
 
-// bOFce7h7hwPx8tPZ
+
 
 const app = express();
 
@@ -45,7 +45,7 @@ app.use((error, req, res, next) => {
 
 mongoose
     .connect(
-        'mongodb+srv://Manu:bOFce7h7hwPx8tPZ@cluster0.qimomj9.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0',
+        'API_KEY',
         {
             useNewUrlParser: true,
             useUnifiedTopology: true
