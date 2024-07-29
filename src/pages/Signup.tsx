@@ -1,10 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../shared/context/AuthContext';
+import LoginImg from '../assets/Login-scene.jpg';
+import LogoImg from '../assets/galleryIcon.png';
+// import { AuthContext } from '../shared/context/AuthContext';
 
 const Signup: React.FC = () => {
     const navigate = useNavigate();
-    const authContext = useContext(AuthContext);
+    // const authContext = useContext(AuthContext);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -50,7 +52,7 @@ const Signup: React.FC = () => {
                 throw new Error('Signup failed');
             }
 
-            alert('회원가입을 축하드립니다!! 서비스 이용을 위해 로그인 부탁드립니다.')
+            alert('Success to create user!!!')
 
             navigate('/');
         } catch (err) {
@@ -63,11 +65,11 @@ const Signup: React.FC = () => {
     return (
         <div className="flex">
             <div className="w-1/3">
-                <img className="w-full h-screen" src="/path/to/LoginImg.jpg" alt="loginimg" />
+                <img className="w-full h-screen" src={LoginImg} alt="loginimg" />
             </div>
             <div className="w-2/3 flex flex-col mt-12">
                 <div className="w-1/3 mx-auto">
-                    <img src="/path/to/LogoImg.png" alt="logoimg" />
+                    <img src={LogoImg} alt="logoimg" />
                 </div>
                 <div className="flex flex-col p-5">
                     <form onSubmit={handleSubmit} className="flex flex-col">
