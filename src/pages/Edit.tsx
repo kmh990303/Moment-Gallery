@@ -93,7 +93,7 @@ const Edit: React.FC = () => {
                             {!previewUrl && (<button className="w-1/4 mx-auto rounded-xl text-white font-bold my-4 p-4 bg-customColor translate-x-32" onClick={handleButtonClick} type="button">
                                 Select an Image
                             </button>)}
-                            {previewUrl && (<img src={previewUrl} alt='preview' className="w-1/4 mx-auto rounded-xl text-white font-bold my-4 p-4 bg-customColor" />)}
+                            {previewUrl && (<img src={previewUrl} alt='preview' className="w-1/4 mx-auto rounded-xl text-white font-bold my-4 bg-customColor translate-x-32" />)}
                             <button className="w-1/4 mx-auto rounded-xl text-white font-bold my-4 p-4 bg-customColor translate-x-16" type="submit">
                                 Create Your Work
                             </button>
