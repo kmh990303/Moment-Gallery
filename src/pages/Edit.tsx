@@ -54,11 +54,8 @@ const Edit: React.FC = () => {
         try {
             const response = await fetch('http://localhost:5000/', {
                 method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+                body: formData,
+            }) 
 
             if (response.ok) {
                 alert('Success to Create new work')
