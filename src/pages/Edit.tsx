@@ -52,10 +52,10 @@ const Edit: React.FC = () => {
         formData.append('image', selectedFile);
 
         try {
-            const response = await fetch('http://localhost:5000/', {
+            const response = await fetch('http://localhost:5000/api/works/upload', {
                 method: 'POST',
                 body: formData,
-            }) 
+            })
 
             if (response.ok) {
                 alert('Success to Create new work')
