@@ -65,10 +65,39 @@ const Work: React.FC = () => {
         }
     }
 
+    const handleDelete = async () => {
+        const confirmed = window.confirm('Are you really sure to delete this work?');
+
+        if (!confirmed) {
+            return;
+        }
+
+
+
+        try {
+            const response = await fetch(`http://localhost:5000/api/works/${art.id}`, {
+                method: 'DELETE'
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to delete work');
+            }
+
+            const data = await response.json();
+            console.log(data.message);
+
+            window.alert('Delete Success!!!');
+
+            navigate('/work');
+        } catch (err) {
+            console.error('Error deleting work// message: ', err);
+        }
+    }
+
     return (
         <>
             {!IsEdit && (
-                <div className='flex gap=8 mt-8 justify-center'>
+                <div className='flex gap-8 mt-8 justify-center'>
                     <div className='w-2/5 ml-8 translate-y-20'>
                         <img src={art.image} alt="art-image" />
                     </div>
@@ -79,9 +108,14 @@ const Work: React.FC = () => {
                         <p className='border-2 border-blue-500 rounded-xl p-4 text-xl'>
                             {art.description}
                         </p>
-                        <button className='border-2 border-blue-500 rounded-xl p-4 text-xl mt-36 hover:bg-blue-700' onClick={handleClickEdit}>
-                            Edit
-                        </button>
+                        <div className='flex gap-4'>
+                            <button className='w-1/2 border-2 border-blue-500 rounded-xl p-4 text-xl mt-36 hover:bg-blue-700' onClick={handleClickEdit}>
+                                Edit
+                            </button>
+                            <button className='w-1/2 border-2 border-blue-500 rounded-xl p-4 text-xl mt-36 hover:bg-red-700' onClick={handleDelete}>
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
@@ -90,7 +124,7 @@ const Work: React.FC = () => {
                     <div className='w-2/5 ml-8 translate-y-20'>
                         <img src={art.image} alt="art-image" />
                     </div>
-                    <form method='PATCH' className='w-2/5 flex flex-col ml-8 translate-y-20' onSubmit={handleSubmit}>
+                    <form className='w-2/5 flex flex-col ml-8 translate-y-20' onSubmit={handleSubmit}>
                         <input type="text" className='border-2 border-blue-500 rounded-xl mb-8 text-center p-8 text-4xl fond-bold' value={formData.title} onChange={handleChange} name='title' />
                         <textarea className='border-2 border-blue-500 rounded-xl p-4 text-xl' value={formData.description} onChange={handleChange} name='description' />
                         <button className='border-2 border-blue-500 rounded-xl p-4 text-xl mt-36 hover:bg-blue-700' type='submit'>
