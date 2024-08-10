@@ -67,7 +67,7 @@ const Works: React.FC = () => {
                             <button onClick={handleLogout}>Logout</button>
                         )}
                         {isLoggedIn && (
-                            <button>Create</button>
+                            <Link to='/edit'>Create</Link>
                         )}
                     </ul>
                 </nav>
@@ -91,7 +91,7 @@ const Works: React.FC = () => {
                         {works.map((work) => (
                             <li key={work.id} className="bg-white bg-opacity-80 rounded-lg">
                                 <div className="flex flex-col items-center" onClick={() => handleClick(work)}>
-                                    <img src={`http://localhost:5000${work.imagePath}`} alt={work.title} className="w-full h-auto rounded-md mb-4" />
+                                    <img src={`http://localhost:5000/${work.imagePath}`} alt={work.title} className="w-full h-auto rounded-md mb-4" />
                                     <h3 className="text-2xl font-bold mb-2">{work.title}</h3>
                                 </div>
                             </li>
