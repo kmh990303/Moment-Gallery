@@ -5,7 +5,7 @@ interface Artwork {
     id: string;
     title: string;
     description: string;
-    image: string;
+    imagePath: string;
 }
 
 interface formDataType {
@@ -42,7 +42,7 @@ const Work: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:5000/api/works/edit/${art.id}`, {
+            const response = await fetch(`http://localhost:5000/api/works/${art.id}`, {
                 method: 'PATCH',
                 body: JSON.stringify(formData),
                 headers: {
@@ -99,7 +99,7 @@ const Work: React.FC = () => {
             {!IsEdit && (
                 <div className='flex gap-8 mt-8 justify-center'>
                     <div className='w-2/5 ml-8 translate-y-20'>
-                        <img src={art.image} alt="art-image" />
+                        <img src={`http://localhost:5000/${art.imagePath}`} alt="art-image" />
                     </div>
                     <div className='w-2/5 flex flex-col ml-8 translate-y-20'>
                         <p className='border-2 border-blue-500 rounded-xl mb-8 text-center p-8 text-4xl fond-bold'>
@@ -122,7 +122,7 @@ const Work: React.FC = () => {
             {IsEdit && (
                 <div className='flex gap-8 mt-8 justify-center'>
                     <div className='w-2/5 ml-8 translate-y-20'>
-                        <img src={art.image} alt="art-image" />
+                        <img src={`http://localhost:5000/${art.imagePath}`} alt="art-image" />
                     </div>
                     <form className='w-2/5 flex flex-col ml-8 translate-y-20' onSubmit={handleSubmit}>
                         <input type="text" className='border-2 border-blue-500 rounded-xl mb-8 text-center p-8 text-4xl fond-bold' value={formData.title} onChange={handleChange} name='title' />
