@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import LoginImg from '../assets/Login-scene.jpg';
 import LogoImg from '../assets/galleryIcon.png';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ const Edit: React.FC = () => {
     const [description, setDescription] = useState<string>('');
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     const fileInputRef = React.createRef<HTMLInputElement>();
 
@@ -63,6 +65,7 @@ const Edit: React.FC = () => {
                 setDescription('');
                 setSelectedFile(null);
                 setPreviewUrl(null);
+                navigate('/');
             } else {
                 alert('Fail to create new work ...')
             }
