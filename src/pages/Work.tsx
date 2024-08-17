@@ -14,7 +14,7 @@ interface Artwork {
 
 
 const Work: React.FC = () => {
-    const { isLoggedIn, logout, userId } = useContext(AuthContext);
+    const { isLoggedIn, logout, userId, token } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const art = location.state as Artwork;
@@ -41,12 +41,12 @@ const Work: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:5000/api/works/${art.id}`, {
+            const response = await fetch(`http://localhost:5000/api/works/edit/${art.id}`, {
                 method: 'PATCH',
                 body: JSON.stringify(formData),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${userId}`
+                    Authorization: `Bearer ${token}`
                 },
             });
 
@@ -74,7 +74,7 @@ const Work: React.FC = () => {
             const response = await fetch(`http://localhost:5000/api/works/${art.id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': `Bearer ${userId}`
+                    Authorization: `Bearer ${token}`
                 }
             });
 
