@@ -10,7 +10,7 @@ const Edit: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const navigate = useNavigate();
-    const { userId, isLoggedIn } = useContext(AuthContext);  // userId 추가
+    const { token } = useContext(AuthContext); // 토큰을 가져옵니다.
 
     const fileInputRef = React.createRef<HTMLInputElement>();
 
@@ -52,11 +52,11 @@ const Edit: React.FC = () => {
         formData.append('image', selectedFile);
 
         try {
-            const response = await fetch('http://localhost:5000/api/works', {
+            const response = await fetch('http://localhost:5000/api/works/upload', {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Authorization': `Bearer ${userId}`  // 로그인 사용자 ID 추가
+                    Authorization: 'Bearer ' + token // 'Authorization' 헤더가 올바른지 확인
                 }
             });
 
@@ -68,7 +68,8 @@ const Edit: React.FC = () => {
                 setPreviewUrl(null);
                 navigate('/');
             } else {
-                alert('Fail to create new work ...');
+                const errorData = await response.json();
+                alert(`Fail to create new work: ${errorData.message}`);
             }
         } catch (err) {
             console.error('Error uploading file:', err);
