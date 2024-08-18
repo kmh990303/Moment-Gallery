@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../shared/context/AuthContext";
 
-const Header: React.FC = () => {
+const Header: React.FC = (props) => {
     const navigate = useNavigate();
     const { isLoggedIn } = useContext(AuthContext);
     return (
-        <header className="text-white fixed w-full flex justify-between items-center p-4 z-10">
+        <header className="text-white fixed w-full flex justify-between items-center p-4 z-10" {...props}>
             <div className="ml-4 text-2xl font-bold cursor-pointer" onClick={() => navigate('/')}>
                 Moment Gallery
             </div>
