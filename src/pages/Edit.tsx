@@ -10,7 +10,7 @@ const Edit: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const navigate = useNavigate();
-    const { token } = useContext(AuthContext); // 토큰을 가져옵니다.
+    const { token } = useContext(AuthContext); 
 
     const fileInputRef = React.createRef<HTMLInputElement>();
 
@@ -56,7 +56,7 @@ const Edit: React.FC = () => {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    Authorization: 'Bearer ' + token // 'Authorization' 헤더가 올바른지 확인
+                    Authorization: 'Bearer ' + token 
                 }
             });
 
