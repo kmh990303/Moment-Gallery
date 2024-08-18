@@ -24,4 +24,11 @@
 ![Works](/images/Works.png)
 
 
+## 작품 업로드
+![upload](/images/Work.png)
+
+
+## 작품 편집
+![WorkDetail](/images/WorkDetail.png)
+
 
