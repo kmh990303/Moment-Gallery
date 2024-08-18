@@ -36,9 +36,10 @@ const Works: React.FC = () => {
     }, [])
 
     const handleLogout = () => {
-        alert('Are you really sure to logout?');
-        logout();
-        navigate('/');
+        if (window.prompt('Are you really sure to logout?')) {
+            logout();
+            navigate('/');
+        };
     }
 
     const handleClick = (artwork: Artwork) => {
