@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../shared/context/AuthContext";
 
@@ -57,14 +57,35 @@ const Works: React.FC = () => {
         <nav className="mr-8">
           <ul className="flex gap-8 text-xl">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : undefined
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/work">Work</Link>
+              <NavLink
+                to="/work"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-400" : undefined
+                }
+              >
+                Work
+              </NavLink>
             </li>
             {!isLoggedIn && (
               <li>
-                <Link to="/login">Login</Link>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive ? "text-blue-400" : undefined
+                  }
+                >
+                  Login
+                </NavLink>
               </li>
             )}
             {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
