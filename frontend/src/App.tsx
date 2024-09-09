@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
+import Works from "./pages/Works";
 import Login from "./pages/Login";
 import Root from "./pages/Root";
 import Edit from "./pages/Edit";
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: 'work',
-        element: <Work />,
+        element: <Works />,
+      },
+      {
+        path: 'work/:workid',
+        element: <Work />
       },
       {
         path: 'edit',
