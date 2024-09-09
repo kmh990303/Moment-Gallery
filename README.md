@@ -21,6 +21,30 @@
 
 ![홈 화면](resultImages/Home.png);
 
+### 작품 화면
+
+![작품 화면](resultImages/Works.png);
+
+### 개별 작품 화면
+
+![개별작품 화면](resultImages/Work.png);
+
+### 작품 등록
+
+![작품 등록 화면](resultImages/Create.png);
+
+### 로그인 
+
+![로그인 화면](resultImages/Login.png);
+
+### 사용자 등록
+
+![사용자 등록 화면](resultImages/Enroll.png);
+
+### 사용자 찾기
+
+![사용자 찾기 화면](resultImages/FindUser.png);
+
 ## 문제점 및 해결
 
 - 프론트 측에서 파일 생성을 위해 이미지를 전송했을 때, 백엔드에서 작품들에 대해 GET 요청을 보냈지만 작품들이 제대로 렌더링 되지 않는 문제점 발생 -> 백엔드 단에서 이미지를 저장하고 있는 폴더를 통해 이미지를 정적으로 제공하게 수정하여 해결하였음
