@@ -12,8 +12,8 @@
 
 ## 기술 스택
 
-- Frontend : React, Typescript, TailwindCSS, Context-API
-- Backend: Express, Mongoose, JWT(JSON Web Token)
+- Frontend (100% 전담) : React, Typescript, TailwindCSS, Context-API
+- Backend (100% 전담): Express, Mongoose, JWT(JSON Web Token)
 
 ## 기능
 
@@ -39,7 +39,7 @@
 
 ![작품 등록 화면](resultImages/Create.png);
 
-### 로그인 
+### 로그인
 
 ![로그인 화면](resultImages/Login.png);
 
