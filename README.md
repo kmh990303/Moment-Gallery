@@ -12,8 +12,8 @@
 
 ## 기술 스택
 
-- Frontend (100% 전담) : React, Typescript, TailwindCSS, Context-API
-- Backend (100% 전담): Express, Mongoose, JWT(JSON Web Token)
+- Frontend (100%) : React, Typescript, TailwindCSS, Context-API
+- Backend (100%): Express, Mongoose, JWT(JSON Web Token)
 
 ## 기능
 
